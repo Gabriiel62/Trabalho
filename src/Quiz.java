@@ -37,7 +37,7 @@ public class Quiz {
         System.out.println();
         System.out.println("ALUNO: GABRIEL HENRIQUE ALVES SANTIAGO E SILVA");
         System.out.println();
-        System.out.println("PROFESSOR: BRENNO PIMENTA");
+        System.out.println("PROFESSOR: BRENNO PIMENT");
         System.out.println();
         System.out.println("ATIVIDADE AVALIATIVA DE CONHECIMENTO HISTÓRICO GERAIS");
         System.out.println();
