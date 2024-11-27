@@ -1,209 +1,196 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
-
-
-class Pergunta {
-    private String questao;
-    private List<String> alternativas;
-    private String respostaCorreta;
-
-    public Pergunta(String questao, List<String> alternativas, String respostaCorreta) {
-        this.questao = questao;
-        this.alternativas = alternativas;
-        this.respostaCorreta = respostaCorreta;
-    }
-
-    public String getQuestao() {
-        return questao;
-    }
-
-    public List<String> getAlternativas() {
-        return alternativas;
-    }
-
-    public String getRespostaCorreta() {
-        return respostaCorreta;
-    }
-}
 
 public class Quiz {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // Corrigido a instância do Scanner
+        String resp;
+        int cont = 0; // Contador de acertos
 
-        // Apresentação do Quiz
-        System.out.println("CENTRO UNIVERSITARIO ALFREDO NASSER");
-        System.out.println();
-        System.out.println("ALUNO: GABRIEL HENRIQUE ALVES SANTIAGO E SILVA");
-        System.out.println();
-        System.out.println("PROFESSOR: BRENNO PIMENT");
-        System.out.println();
-        System.out.println("ATIVIDADE AVALIATIVA DE CONHECIMENTO HISTÓRICO GERAIS");
-        System.out.println();
-        System.out.println("NESTE QUESTIONÁRIO VOCÊ IRÁ RESPONDER 15 PERGUNTAS. É NECESSÁRIO DIGITAR O NÚMERO CORRESPONDENTE À ALTERNATIVA.");
-        System.out.println();
+        Questao q1 = new Questao();
+        q1.pergunta = "Qual é o primeiro jogo da série 'The Legend of Zelda'?";
+        q1.opcaoA = " a) Ocarina of Time";
+        q1.opcaoB = " b) Breath of the Wild";
+        q1.opcaoC = " c) Link's Awakening";
+        q1.opcaoD = " d) The Legend of Zelda";
+        q1.opcaoE = " e) Majora's Mask";
+        q1.correta = "d";
+        q1.escrevaQuestao();
+        resp = q1.leiaResposta();
+        if (q1.isCorreta(resp)) cont++;
 
-        // Lista para armazenar as perguntas
-        List<Pergunta> perguntas = new ArrayList<>();
-        List<Pergunta> acertadas = new ArrayList<>();
-        List<Pergunta> erradas = new ArrayList<>();
+        Questao q2 = new Questao();
+        q2.pergunta = "Em qual jogo o personagem Mario foi criado?";
+        q2.opcaoA = " a) Donkey Kong";
+        q2.opcaoB = " b) Super Mario Bros.";
+        q2.opcaoC = " c) Mario Kart";
+        q2.opcaoD = " d) The Legend of Zelda";
+        q2.opcaoE = " e) Metroid";
+        q2.correta = "a";
+        q2.escrevaQuestao();
+        resp = q2.leiaResposta();
+        if (q2.isCorreta(resp)) cont++;
 
+        Questao q3 = new Questao();
+        q3.pergunta = "Qual é o nome do vilão principal em 'Final Fantasy VII'?";
+        q3.opcaoA = " a) Sephiroth";
+        q3.opcaoB = " b) Kefka";
+        q3.opcaoC = " c) Exdeath";
+        q3.opcaoD = " d) Kuja";
+        q3.opcaoE = " e) Golbez";
+        q3.correta = "a";
+        q3.escrevaQuestao();
+        resp = q3.leiaResposta();
+        if (q3.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual foi o primeiro console da Sony lançado no mercado?",
-                List.of("PlayStation", "PlayStation 2", "PlayStation 3", "PlayStation Portable", "PlayStation Vita"),
-                "PlayStation"
-        ));
+        Questao q4 = new Questao();
+        q4.pergunta = "Em 'Minecraft', qual bloco é usado para fazer uma picareta?";
+        q4.opcaoA = " a) Pedra";
+        q4.opcaoB = " b) Ferro";
+        q4.opcaoC = " c) Madeira";
+        q4.opcaoD = " d) Diamante";
+        q4.opcaoE = " e) Ouro";
+        q4.correta = "c";
+        q4.escrevaQuestao();
+        resp = q4.leiaResposta();
+        if (q4.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Em qual jogo o personagem Mario faz sua estreia?",
-                List.of(" Donkey Kong", "Super Mario Bros.", "Mario Kart", "Super Mario 64", "Super Mario Odyssey"),
-                "Donkey Kong"
-        ));
+        Questao q5 = new Questao();
+        q5.pergunta = "Qual é o nome do personagem principal em 'The Witcher 3'?";
+        q5.opcaoA = " a) Geralt de Rivia";
+        q5.opcaoB = " b) Ciri";
+        q5.opcaoC = " c) Yennefer";
+        q5.opcaoD = " d) Dandelion";
+        q5.opcaoE = " e) Triss Merigold";
+        q5.correta = "a";
+        q5.escrevaQuestao();
+        resp = q5.leiaResposta();
+        if (q5.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual jogo da série The Legend of Zelda foi lançado para o Nintendo Switch em 2017?",
-                List.of(" The Legend of Zelda: Wind Waker", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: Breath of the Wild", "The Legend of Zelda: Ocarina of Time", "The Legend of Zelda: Skyward Sword"),
-                "The Legend of Zelda: Breath of the Wild"
-        ));
-        perguntas.add(new Pergunta(
-                "Quem é o desenvolvedor do jogo The Witcher 3: Wild Hunt",
-                List.of("Ubisoft", "Blizzard Entertainment", "CD Projekt Red ", "Rockstar Games", "Bethesda Softworks"),
-                "CD Projekt Red "
-        ));
+        Questao q6 = new Questao();
+        q6.pergunta = "Qual é o nome do mundo em 'Dark Souls'?";
+        q6.opcaoA = " a) Lordran";
+        q6.opcaoB = " b) Tamriel";
+        q6.opcaoC = " c) Gielinor";
+        q6.opcaoD = " d) Hyrule";
+        q6.opcaoE = " e) Midgard";
+        q6.correta = "a";
+        q6.escrevaQuestao();
+        resp = q6.leiaResposta();
+        if (q6.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual desses jogos pertence à franquia Halo",
-                List.of("Halo: Reach", "Gears of War", "Destiny", "Call of Duty", "Half-Life"),
-                "Halo: Reach"
-        ));
+        Questao q7 = new Questao();
+        q7.pergunta = "Qual jogo é conhecido por sua famosa frase 'It's dangerous to go alone! Take this.'?";
+        q7.opcaoA = " a) The Legend of Zelda";
+        q7.opcaoB = " b) Super Mario Bros.";
+        q7.opcaoC = " c) Metroid";
+        q7.opcaoD = " d) Castlevania";
+        q7.opcaoE = " e) EarthBound";
+        q7.correta = "a";
+        q7.escrevaQuestao();
+        resp = q7.leiaResposta();
+        if (q7.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Em Minecraft, qual é o nome do mob que explode quando se aproxima do jogador?",
-                List.of("Creeper", "Enderman", "Zumbi", " Esqueleto", " Slime"),
-                "Creeper"
-        ));
+        Questao q8 = new Questao();
+        q8.pergunta = "Em 'Overwatch', qual herói é conhecido por ser o tanque que usa uma armadura mecânica?";
+        q8.opcaoA = " a) Winston";
+        q8.opcaoB = " b) Roadhog";
+        q8.opcaoC = " c) Zarya";
+        q8.opcaoD = " d) Reaper";
+        q8.opcaoE = " e) D.Va";
+        q8.correta = "e";
+        q8.escrevaQuestao();
+        resp = q8.leiaResposta();
+        if (q8.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Em qual cidade fictícia se passa o jogo Grand Theft Auto V",
-                List.of("Vice City", "Liberty City", "Los Santos ", "San Fierro", "Rapture"),
-                "Los Santos "
-        ));
+        Questao q9 = new Questao();
+        q9.pergunta = "Qual é o nome do jogo onde você deve coletar e treinar criaturas chamadas 'Pokémon'?";
+        q9.opcaoA = " a) Animal Crossing";
+        q9.opcaoB = " b) The Elder Scrolls";
+        q9.opcaoC = " c) Pokémon";
+        q9.opcaoD = " d) Digimon";
+        q9.opcaoE = " e) Final Fantasy";
+        q9.correta = "c";
+        q9.escrevaQuestao();
+        resp = q9.leiaResposta();
+        if (q9.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual é o nome do protagonista de God of War",
-                List.of("Kratos", "Atreus", "Thor", "Ares", "Zeus"),
-                "Kratos"
-        ));
+        Questao q10 = new Questao();
+        q10.pergunta = "Qual é o nome do personagem principal em 'Halo'?";
+        q10.opcaoA = " a) Master Chief";
+        q10.opcaoB = " b) Marcus Fenix";
+        q10.opcaoC = " c) Samus Aran";
+        q10.opcaoD = " d) Kratos";
+        q10.opcaoE = " e) Commander Shepard";
+        q10.correta = "a";
+        q10.escrevaQuestao();
+        resp = q10.leiaResposta();
+        if (q10.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual é o gênero principal do jogo League of Legends",
-                List.of("MOBA (Multiplayer Online Battle Arena)", "RPG", " FPS ", "Ação e Aventura", "Simulação"),
-                "MOBA (Multiplayer Online Battle Arena)"
-        ));
+        Questao q11 = new Questao();
+        q11.pergunta = "Qual é o nome do estúdio que criou 'The Elder Scrolls V: Skyrim'?";
+        q11.opcaoA = " a) BioWare";
+        q11.opcaoB = " b) Bethesda";
+        q11.opcaoC = " c) Square Enix";
+        q11.opcaoD = " d) Blizzard";
+        q11.opcaoE = " e) Ubisoft";
+        q11.correta = "b";
+        q11.escrevaQuestao();
+        resp = q11.leiaResposta();
+        if (q11.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual foi o nome do primeiro jogo da série Final Fantasy",
-                List.of("Final Fantasy VII", "Final Fantasy XV", "Final Fantasy IX", " Final Fantasy X", "Final Fantasy"),
-                "Final Fantasy"
-        ));
+        Questao q12 = new Questao();
+        q12.pergunta = "Qual é o nome da cidade onde ocorre a maioria das missões de 'Grand Theft Auto V'?";
+        q12.opcaoA = " a) Liberty City";
+        q12.opcaoB = " b) Los Santos";
+        q12.opcaoC = " c) Vice City";
+        q12.opcaoD = " d) San Fierro";
+        q12.opcaoE = " e) Las Venturas";
+        q12.correta = "b";
+        q12.escrevaQuestao();
+        resp = q12.leiaResposta();
+        if (q12.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual é o nome do famoso zumbi em Resident Evil",
-                List.of("Nemesis", "Mr. X", " Leon", "Jill", "Tyrant"),
-                "Tyrant"
-        ));
+        Questao q13 = new Questao();
+        q13.pergunta = "Qual é o nome do jogo que possui a mecânica de sobrevivência em um apocalipse zumbi chamado 'DayZ'?";
+        q13.opcaoA = " a) Left 4 Dead";
+        q13.opcaoB = " b) State of Decay";
+        q13.opcaoC = " c) DayZ";
+        q13.opcaoD = " d) 7 Days to Die";
+        q13.opcaoE = " e) The Walking Dead";
+        q13.correta = "c";
+        q13.escrevaQuestao();
+        resp = q13.leiaResposta();
+        if (q13.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual jogo é famoso pela frase \"It's-a me, Mario!\"",
-                List.of("Super Mario 64", "Super Mario Odyssey", "Super Mario Galaxy", "Super Mario Bros.", "Mario Kart 8 Deluxe"),
-                "Super Mario 64"
-        ));
+        Questao q14 = new Questao();
+        q14.pergunta = "Qual é o nome do protagonista de 'Assassin's Creed'?";
+        q14.opcaoA = " a) Ezio Auditore";
+        q14.opcaoB = " b) Altair Ibn-La'Ahad";
+        q14.opcaoC = " c) Connor Kenway";
+        q14.opcaoD = " d) Desmond Miles";
+        q14.opcaoE = " e) Edward Kenway";
+        q14.correta = "d";
+        q14.escrevaQuestao();
+        resp = q14.leiaResposta();
+        if (q14.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual é o nome da ilha em que o jogo \"Fortnite\" se passa?",
-                List.of("Battle Island", "Tilted Towers", "Fortnite Island", " Island Royale", "Apollo Island"),
-                "Apollo Island"
-        ));
+        Questao q15 = new Questao();
+        q15.pergunta = "Em 'The Last of Us', qual é o nome do personagem principal?";
+        q15.opcaoA = " a) Nathan Drake";
+        q15.opcaoB = " b) Joel";
+        q15.opcaoC = " c) Kratos";
+        q15.opcaoD = " d) Leon Kennedy";
+        q15.opcaoE = " e) Arthur Morgan";
+        q15.correta = "b";
+        q15.escrevaQuestao();
+        resp = q15.leiaResposta();
+        if (q15.isCorreta(resp)) cont++;
 
-        perguntas.add(new Pergunta(
-                "Qual é o objetivo principal de \"Among Us\"",
-                List.of("Construir uma nave", "Caçar monstros", "Identificar o impostor ", " Completar missões de resgate", "Capturar a bandeira"),
-                "Identificar o impostor "
-        ));
-
-        perguntas.add(new Pergunta(
-                "Em \"Overwatch\", qual personagem é conhecido por sua habilidade de ressuscitar os outros jogadores?",
-                List.of("Mercy", "Tracer", "Reinhardt", "Widowmaker", "Genji"),
-                "Mercy"
-        ));
-
-
-        // Contador de acertos
-        int acertos = 0;
-
-        // Iterar sobre as perguntas
-        for (Pergunta pergunta : perguntas) {
-            boolean respostaRegistrada = false;
-            while (!respostaRegistrada) {
-
-                System.out.println(pergunta.getQuestao());
-
-                // Embaralhar alternativas
-                List<String> alternativas = new ArrayList<>(pergunta.getAlternativas());
-                Collections.shuffle(alternativas);
-
-                // Exibir alternativas
-                for (int i = 0; i < alternativas.size(); i++) {
-                    System.out.println("[" + i + "] " + alternativas.get(i));
-                }
-
-
-                System.out.print("Digite o número da sua resposta: ");
-                String resposta = scanner.nextLine();
-
-                try {
-                    // Verificar a resposta
-                    int respostaInt = Integer.parseInt(resposta);
-                    if (respostaInt < 0 || respostaInt >= alternativas.size()) {
-                        System.out.println("Número inválido. Tente novamente.");
-                    } else {
-                        String valorDaResposta = alternativas.get(respostaInt);
-                        if (valorDaResposta.equals(pergunta.getRespostaCorreta())) {
-                            System.out.println("Resposta correta!");
-                            acertos++;
-                            acertadas.add(pergunta);
-                        } else {
-                            System.out.println("Resposta errada! A resposta correta era: " + pergunta.getRespostaCorreta());
-                            erradas.add(pergunta);
-                        }
-                        respostaRegistrada = true; // Passar para a próxima pergunta
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Entrada inválida! Digite um número correspondente à alternativa.");
-                }
-            }
-        }
-
-        // Exibir resultados
         System.out.println("\nRESULTADOS DO QUIZ:");
-        System.out.println("Você acertou " + acertos + " de " + perguntas.size() + " perguntas.");
-        double porcentagem = (acertos / (double) perguntas.size()) * 100;
+        System.out.println("Você acertou " + cont + " de 15 perguntas."); // Exibe o número de acertos
+        System.out.println("Você acertou " + (15-cont) + " de 15 perguntas.");
+        double porcentagem = (cont / 15.0) * 100;
         System.out.println("Porcentagem de acertos: " + String.format("%.2f", porcentagem) + "%");
-
-
-        System.out.println("\nPerguntas Acertadas:");
-        for (Pergunta pergunta : acertadas) {
-            System.out.println("- " + pergunta.getQuestao() + " (Resposta correta: " + pergunta.getRespostaCorreta() + ")");
-        }
-
-
-        System.out.println("\nPerguntas Erradas:");
-        for (Pergunta pergunta : erradas) {
-            System.out.println("- " + pergunta.getQuestao() + " (Resposta correta: " + pergunta.getRespostaCorreta() + ")");
-        }
-
-        scanner.close();
     }
 }
+
