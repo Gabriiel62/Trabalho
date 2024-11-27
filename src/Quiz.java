@@ -8,7 +8,7 @@ public class Quiz {
 
         Questao q1 = new Questao();
         q1.pergunta = "Qual é o primeiro jogo da série 'The Legend of Zelda'?";
-        q1.opcaoA = " a) Ocarina of Time";
+        q1.opcaoA = " a) Ocarina of Tim";
         q1.opcaoB = " b) Breath of the Wild";
         q1.opcaoC = " c) Link's Awakening";
         q1.opcaoD = " d) The Legend of Zelda";
